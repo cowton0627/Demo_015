@@ -8,12 +8,42 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var resultLabel: UILabel!
+    
+    var input: Double {
+        get {
+             return Double(resultLabel.text!)!
+        }
+        set {
+             resultLabel.text = "\(newValue)"
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
-
+    
+    
+    @IBAction func btnTapped2(_ sender: UIButton) {
+        
+        let resultNum = input + (Double(sender.currentTitle!) ?? 0)
+        
+        resultLabel.text = "\(resultNum)"
+    }
+    
+    
+    
+    @IBAction func btnTapped(_ sender: Any) {
+        resultLabel.text = "\(input)"
+        
+    }
+    
+    
+    @IBAction func equalBtnTapped(_ sender: Any) {
+        input = 666
+    }
+    
+    
 }
 
